@@ -7,7 +7,6 @@ fastify.get('/', async (request, reply) => {
     try {
         const data = await fs.readFile('./users.json', 'utf8');
         let result = JSON.parse(data);
-
         if (request.query.term) {
             result = result.filter(elem => elem.name.toLowerCase().includes(request.query.term.toLowerCase()));
         }
